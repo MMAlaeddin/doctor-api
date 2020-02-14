@@ -16,10 +16,19 @@ $(document).ready(function() {
       getElements(response);
     })();
 
-      function getElements(response) {
-        $("#name").text(`${response.data.bio}`);
-        console.log(response);
+    function getElements(response) {
+      const docArr = response.data
+      const nameArr = [];
+      if (response) {
+        for (let i = 0; i < docArr.length; i++) {
+          nameArr.push(`${response.data[i].profile.first_name}`)
+        }
+        console.log(nameArr);
       }
+    }
+    
+
+
 
   });
 
