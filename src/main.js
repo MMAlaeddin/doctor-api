@@ -21,7 +21,7 @@ $(document).ready(function() {
       const nameArr = [];
       if (response) {
         for (let i = 0; i < docArr.length; i++) {
-          nameArr.push(`<li> ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} </li>`)
+          nameArr.push(`<li> ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} - ${response.data[i].practices[i].visit_address.street} - ${response.data[i].practices[i].accepts_new_patients} </li>`)
         
         }
       }
