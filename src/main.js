@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 });
 
-$("#docInfo").submit(function(event) {
+$("#sympForm").submit(function(event) {
   event.preventDefault();
   const symps = $("#symptoms").val();
   $("#symptoms").val("");
@@ -39,18 +39,18 @@ $("#docInfo").submit(function(event) {
   (async () => {
     let doctorSymp = new DoctorSymp();
     const response2 = await doctorSymp.getSymp(symps);
-    getElements(response2);
+    getElements2(response2);
   })();
 
-  function getElements(response2) {
+  function getElements2(response2) {
     const docArr2 = response2.data;
     const sympArr = [];
     if (response2) {
       for (let j = 0; j < docArr2.length; j++) {
-        sympArr.push(`<li> ${response2.data[j].profile.first_name} ${response2.data[j].profile.last_name} - ${response2.data[j].practices[j].accepts_new_patients} </li>`);
+        sympArr.push(`<li> ${response2.data[j].profile.first_name} ${response2.data[j].profile.last_name} </li>`);
       }
     }
-    console.log(sympArr)
+    console.log(response2)
     $("#name").append(sympArr);
   }
 });
