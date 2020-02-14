@@ -16,12 +16,10 @@ $(document).ready(function() {
       getElements(response);
     })();
 
-    function getElements(response) {
-      if (response) {
-        $(`#name").append("Based off of your symptoms: ${prob}, we recommend the following doctors.  <li> ${response.data.first_name} ${response.data.last_name}`);
+      function getElements(response) {
+        $("#name").text(`${response.data.bio}`);
+        console.log(response);
       }
-    }
-
 
   });
 
