@@ -7,8 +7,8 @@ import { DoctorInfo } from './../src/project-service.js';
 $(document).ready(function() {
   $("#docInfo").submit(function(event) {
     event.preventDefault();
-    const prob = $("#symptom").val();
-    $("#symptom").val("");
+    const prob = $("#docName").val();
+    $("#docName").val("");
 
     (async () => {
       let doctorInfo = new DoctorInfo();
@@ -21,13 +21,15 @@ $(document).ready(function() {
       const nameArr = [];
       if (response) {
         for (let i = 0; i < docArr.length; i++) {
-          nameArr.push(`${response.data[i].profile.first_name}`)
+          nameArr.push(`<li> ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} </li>`);
         }
-        console.log(nameArr);
       }
+      
+      console.log(response)
+      $("#name").append(nameArr)
     }
-    
 
+    
 
 
   });
