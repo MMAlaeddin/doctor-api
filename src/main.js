@@ -7,31 +7,33 @@ import { DoctorInfo } from './../src/project-service.js';
 $(document).ready(function() {
   $("#docInfo").submit(function(event) {
     event.preventDefault();
-    const prob = $("#docName").val();
+    const name = $("#docName").val();
     $("#docName").val("");
 
     (async () => {
       let doctorInfo = new DoctorInfo();
-      const response = await doctorInfo.getInfo(prob);
+      const response = await doctorInfo.getInfo(name);
       getElements(response);
     })();
 
     function getElements(response) {
-      const docArr = response.data
+      const docArr = response.data;
       const nameArr = [];
       if (response) {
         for (let i = 0; i < docArr.length; i++) {
-          nameArr.push(`<li> ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} </li>`);
+          nameArr.push(`<li> ${response.data[i].profile.first_name} ${response.data[i].profile.last_name} </li>`)
+        
         }
       }
-      
+
+
+
       console.log(response)
       $("#name").append(nameArr)
-    }
 
     
-
-
+    
+    }
   });
 
 });
