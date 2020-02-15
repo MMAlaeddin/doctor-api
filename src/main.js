@@ -47,7 +47,7 @@ $("#sympForm").submit(function(event) {
     const sympArr = [];
     if (response2) {
       for (let j = 0; j < docArr2.length; j++) {
-        sympArr.push(`<li> ${response2.data[j].profile.first_name} ${response2.data[j].profile.last_name} </li>`);
+        sympArr.push(`<li> ${response2.data[j].profile.first_name} <br> ${response2.data[j].profile.last_name} <br> ${response2.data[j].practices[0].visit_address.street} <br> ${response2.data[j].practices[0].accepts_new_patients} <br> <a href="${response2.data[j].practices[0].website}">Link to website</a> </li>`);
       }
     }
     console.log(response2)
